@@ -2,13 +2,30 @@
 <html>
 <head>
   <title>Magazine</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body id="store">
+	<div id="banner">
+		<%= image_tag("logo.png") %>
+		<%= @page_title || "Magazine" %>
+	</div>
+	
+	<div id="columns" >
+		<div id="side" >
+			<div id="cart">
+				<%= render @cart%>
+			</div>
+			<a href="http://www...." >Home</a><br />
+			<a href="http://www..../faq" >Questions</a><br />
+			<a href="http://www..../news" >News</a><br />
+			<a href="http://www..../contact" >Contact</a><br />
+		</div>
+	
+		<div id="main">
+			<%= yield %>
+		</div>
+	</div>
 </body>
 </html>
